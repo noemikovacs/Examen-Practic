@@ -16,6 +16,10 @@ public class CarService {
     //private InMemoryRepository myClassRepository;
     private IRepository<Car> carRepository;
 
+    /**
+     * constructor
+     * @param carRepository
+     */
     public CarService(IRepository carRepository) {
 
         this.carRepository = carRepository;
@@ -54,16 +58,10 @@ public class CarService {
     }
 
 
-    //raport kilometraj
-    /*
-            List<Medicament> result = new ArrayList<>();
-        for (Medicament m : medrepository.getAll()) {
-            if (m.toString().contains(text)) {
-                result.add(m);
-            }
-        }
-        return result;
-    }
+    /**
+     * report about the current km situation of the car
+     * @param id
+     * @return
      */
     public double raportKm(String id) {
 

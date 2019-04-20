@@ -6,6 +6,10 @@ public abstract class Entity {
 
     private String id;
 
+    /**
+     * construct an entity
+     * @param id
+     */
     public Entity(String id) {
         this.id = id;
     }
@@ -23,6 +27,7 @@ public abstract class Entity {
         return Objects.hash(id);
     }
 
+    //to string
     @Override
     public String toString() {
         return "Entity{" +

@@ -9,6 +9,7 @@ import java.util.Date;
 public class MyClassValidator implements IValidator<Car> {
 
     /**
+     * Validate a car object
      * @param mc
      * @throws MyClassValException
      */

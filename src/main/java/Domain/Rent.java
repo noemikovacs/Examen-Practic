@@ -5,6 +5,13 @@ public class Rent extends Entity {
     private String idCar;
     private int nrOfDays, kmUsed;
 
+    /**
+     * constructor
+     * @param id
+     * @param idCar
+     * @param nrOfDays
+     * @param kmUsed
+     */
     public Rent(String id, String idCar, int nrOfDays, int kmUsed) {
         super(id);
         this.idCar = idCar;
@@ -12,6 +19,7 @@ public class Rent extends Entity {
         this.kmUsed = kmUsed;
     }
 
+    //getters and setter
     public String getIdCar() {
         return idCar;
     }
@@ -36,6 +44,7 @@ public class Rent extends Entity {
         this.kmUsed = kmUsed;
     }
 
+    //tostring
     @Override
     public String toString() {
         return "SecondClass{" +
