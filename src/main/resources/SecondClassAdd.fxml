@@ -12,8 +12,8 @@
 
 
 <Spinner fx:id="spnId" initialValue="0" editable="true" min="0" max="2000000000"/>
-<TextField fx:id="txtIdCar" prefHeight="25.0" prefWidth="110.0" promptText="Name"/>
-<TextField fx:id="txtNrOfDays" promptText="Price"/>
+<TextField fx:id="txtIdCar" prefHeight="25.0" prefWidth="110.0" promptText="Id Car"/>
+<TextField fx:id="txtNrOfDays" promptText="Nr of Days"/>
     <TextField fx:id="txtKmUsed" promptText="Price"/>
 
 

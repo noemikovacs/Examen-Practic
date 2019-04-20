@@ -49,4 +49,27 @@ public class MyClassAddController {
         }
     }
 
+    public void btnAfisKM(ActionEvent actionEvent){
+
+        try{
+            String id = String.valueOf(spnId.getValue());
+
+            service.raportKm(id);
+            btnCancelClick(actionEvent);
+        } catch (RuntimeException rex) {
+            Common.showValidationError(rex.getMessage());
+        }
+    }
+
+    public void btnAfisKMClick(ActionEvent actionEvent) {
+
+        try{
+            String id = String.valueOf(spnId.getValue());
+
+            service.raportKm(id);
+            btnCancelClick(actionEvent);
+        } catch (RuntimeException rex) {
+            Common.showValidationError(rex.getMessage());
+        }
+    }
 }

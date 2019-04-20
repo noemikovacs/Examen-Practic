@@ -1,5 +1,6 @@
 package Domain;
 
+
 public class SecondClassValidator implements IValidator <Rent> {
 
     @Override
@@ -8,6 +9,7 @@ public class SecondClassValidator implements IValidator <Rent> {
         if(rent.getIdCar().isEmpty()){
             throw new SecondClassExc("The ID car is not valid!");
         }
+
 
     }
 }

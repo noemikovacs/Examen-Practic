@@ -2,19 +2,23 @@ package Service;
 
 import Domain.Rent;
 import Repository.IRepository;
+import Repository.RepositoryException;
 
 import java.util.List;
 
 public class RentService {
 
     private IRepository rentRepository;
+    private IRepository carRepository;
 
     /**
      *
      * @param rentRepository
      */
-    public RentService(IRepository rentRepository) {
+    public RentService(IRepository rentRepository, IRepository carRepository) {
+
         this.rentRepository = rentRepository;
+        this.carRepository = carRepository;
     }
 
     /**
@@ -28,7 +32,14 @@ public class RentService {
     //String id, int idCar, int nrOfDays, int kmUsed
     public void add (String id, String idCar, int nrOfDays, int kmUsed){
         Rent rent = new Rent(id,idCar,nrOfDays,kmUsed);
-        rentRepository.uspert(rent);
+        if(carRepository.findByID(rent.getIdCar()).getId().equals(idCar)){
+
+            rentRepository.uspert(rent);
+
+        } else {
+            throw new RepositoryException("The given ID car is not exists! Add a valid car ID");
+        }
+
     }
 
     /**

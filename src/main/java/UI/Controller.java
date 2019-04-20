@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Modality;
@@ -30,7 +31,7 @@ public class Controller {
     public TableColumn tableColumnModel;
     public TableColumn tableColumnKm;
     public TableColumn tableColumnPricePerDay;
-
+    public Label afisResults;
 
     public Button btnMedAdd;
     public Button btnMedDelete;
@@ -38,7 +39,7 @@ public class Controller {
     public CarService service;
 
 
-//String id, String idCar, int nrOfDays, int kmUsed
+    //String id, String idCar, int nrOfDays, int kmUsed
     public TableView tableViewSecondClass;
     public TableColumn tableColumnSecId;
     public TableColumn tableColumnSecIdCar;
@@ -54,26 +55,26 @@ public class Controller {
     private ObservableList<Car> mc = FXCollections.observableArrayList();
     private ObservableList<Rent> sc = FXCollections.observableArrayList();
 
-    public void setService(CarService service){
+    public void setService(CarService service) {
 
         this.service = service;
 
     }
 
-    public void setSecService(RentService secService){
+    public void setSecService(RentService secService) {
 
         this.secService = secService;
     }
 
 
     @FXML
-    private void initialize(){
+    private void initialize() {
 
-        Platform.runLater(() ->{
+        Platform.runLater(() -> {
             mc.addAll(service.getAll());
             tableViewMyClass.setItems(mc);
         });
-        Platform.runLater(() ->{
+        Platform.runLater(() -> {
             sc.addAll(secService.getAll());
             tableViewSecondClass.setItems(sc);
         });
@@ -121,7 +122,7 @@ public class Controller {
 
     public void btnMyClassDeleteClick(ActionEvent actionEvent) {
         Car selected = (Car) tableViewMyClass.getSelectionModel().getSelectedItem();
-        if (selected != null ) {
+        if (selected != null) {
             try {
                 service.delete(selected.getId());
                 mc.clear();
@@ -133,8 +134,8 @@ public class Controller {
     }
 
     public void btnSecondClassDeleteClick(ActionEvent actionEvent) {
-        Rent selected = (Rent)tableViewSecondClass.getSelectionModel().getSelectedItem();
-        if (selected != null ) {
+        Rent selected = (Rent) tableViewSecondClass.getSelectionModel().getSelectedItem();
+        if (selected != null) {
             try {
                 secService.delete(selected.getId());
                 sc.clear();
@@ -143,5 +144,18 @@ public class Controller {
                 Common.showValidationError(rex.getMessage());
             }
         }
+    }
+
+    @FXML
+    private void btnAfisKMClick(ActionEvent actionEvent) {
+        Car selected = (Car) tableViewMyClass.getSelectionModel().getSelectedItem();
+
+            try {
+                service.raportKm(selected.getId());
+            } catch (RuntimeException rex) {
+                Common.showValidationError(rex.getMessage());
+            }
+
+
     }
 }

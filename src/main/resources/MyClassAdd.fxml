@@ -19,6 +19,7 @@
 
     <Button text="Add" fx:id="btnAddMyClass" onAction="#btnAddClick" />
     <Button text="Cancel" fx:id="btnCancel" onAction="#btnCancelClick" />
+    <Button text="AfisKM" fx:id="btnAfisKM" onAction="#btnAfisKMClick" />
 </VBox>
 
 

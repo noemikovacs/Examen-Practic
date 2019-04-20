@@ -46,6 +46,8 @@
         </TableView>
         <Button fx:id="btnMedAdd" onAction="#btnMyClassAddClick" text="Add" />
         <Button fx:id="btnMedDelete" onAction="#btnMyClassDeleteClick" text="Delete" />
+        <Button fx:id="btnAfisKM" onAction="#btnAfisKMClick" text="AfisKM" />
+
     </VBox>
 
     <VBox>

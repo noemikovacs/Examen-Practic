@@ -14,7 +14,7 @@ import java.util.List;
 public class CarService {
 
     //private InMemoryRepository myClassRepository;
-    private IRepository carRepository;
+    private IRepository<Car> carRepository;
 
     public CarService(IRepository carRepository) {
 
@@ -54,6 +54,30 @@ public class CarService {
     }
 
 
+    //raport kilometraj
+    /*
+            List<Medicament> result = new ArrayList<>();
+        for (Medicament m : medrepository.getAll()) {
+            if (m.toString().contains(text)) {
+                result.add(m);
+            }
+        }
+        return result;
+    }
+     */
+    public double raportKm(String id) {
+
+        //List<Car> result = new ArrayList<>();
+        double result=0;
+        for(Car c: carRepository.getAll()){
+            if(!c.getId().isEmpty()){
+                result =c.getKm();
+                System.out.println(c.getKm());
+            }
+        }
+        return result;
+
+    }
 
 
 }

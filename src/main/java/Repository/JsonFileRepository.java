@@ -93,6 +93,9 @@ public class JsonFileRepository<T extends Entity> implements IRepository<T> {
     public void uspert(T entity) {
         loadFromFile();
         validator.validate(entity);
+        if (storage.containsKey(entity.getId())) {
+            throw new RepositoryException("An entity with  this id already exists");
+        }
         storage.put(entity.getId(), entity);
         writeToFile();
     }
