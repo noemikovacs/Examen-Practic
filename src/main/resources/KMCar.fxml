@@ -7,18 +7,13 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox fx:controller="UI.MyClassAddController"
+<VBox fx:controller="UI.KMCarAddController"
       xmlns:fx="http://javafx.com/fxml" alignment="center">
 
-
     <Spinner fx:id="spnId" initialValue="0" editable="true" min="0" max="2000000000"/>
-    <TextField fx:id="txtModel" prefHeight="25.0" prefWidth="110.0" promptText="Name"/>
     <TextField fx:id="txtKm" promptText="KM"/>
-    <TextField fx:id="txtPricePerDay" promptText="Price Per Day"/>
 
-
-    <Button text="Add" fx:id="btnAddMyClass" onAction="#btnAddClick" />
-    <Button text="Cancel" fx:id="btnCancel" onAction="#btnCancelClick" />
+    <Button text="Calculate KM" fx:id="btnCalKMClass" onAction="#btnCalcClick" />
 </VBox>
 
 

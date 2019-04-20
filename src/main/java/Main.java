@@ -30,7 +30,7 @@ public class Main extends Application {
             IRepository<Car> myClassRepository = new JsonFileRepository<>(myClassValidator, "myClass.json",Car.class);
             IRepository<Rent> secondClassIRepository = new JsonFileRepository<>(secClassValidator,"secondClass.json",Rent.class);
 
-            CarService service = new CarService(myClassRepository);
+            CarService service = new CarService(myClassRepository, secondClassIRepository);
             RentService secService = new RentService(secondClassIRepository, myClassRepository);
 
             //service.add("52","test","20.11.2013","2h","11");

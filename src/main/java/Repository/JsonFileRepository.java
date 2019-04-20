@@ -41,9 +41,6 @@ public class JsonFileRepository<T extends Entity> implements IRepository<T> {
         this.type = type;
     }*/
 
-    /**
-     * load from file
-     */
     private void loadFromFile() {
         storage.clear();
         Gson gson = new Gson();
@@ -60,10 +57,6 @@ public class JsonFileRepository<T extends Entity> implements IRepository<T> {
             System.out.println("Load from file error: " + ex.getMessage());
         }
     }
-
-    /**
-     * write to file
-     */
 
     private void writeToFile() {
         Gson gson = new Gson();

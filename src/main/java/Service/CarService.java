@@ -2,6 +2,8 @@ package Service;
 
 
 import Domain.Car;
+import Domain.Entity;
+import Domain.Rent;
 import Repository.IRepository;
 import Repository.InMemoryRepository;
 
@@ -14,15 +16,13 @@ import java.util.List;
 public class CarService {
 
     //private InMemoryRepository myClassRepository;
-    private IRepository<Car> carRepository;
+    private IRepository carRepository;
+    private IRepository rentRepository;
 
-    /**
-     * constructor
-     * @param carRepository
-     */
-    public CarService(IRepository carRepository) {
+    public CarService(IRepository carRepository, IRepository rentRepository) {
 
         this.carRepository = carRepository;
+        this.rentRepository = rentRepository;
     }
 
     /**
@@ -58,24 +58,18 @@ public class CarService {
     }
 
 
-    /**
-     * report about the current km situation of the car
-     * @param id
-     * @return
-     */
-    public double raportKm(String id) {
-
-        //List<Car> result = new ArrayList<>();
-        double result=0;
-        for(Car c: carRepository.getAll()){
-            if(!c.getId().isEmpty()){
-                result =c.getKm();
-                System.out.println(c.getKm());
+    public double getKm(String id) {
+        int sumKM = 0;
+        Car car = new Car("a", "a", 0,0);
+        car  = (Car)carRepository.findByID(id);
+        sumKM = (int)car.getKm();
+        for (Object rent : rentRepository.getAll()){
+            Rent rent1 = (Rent)rent;
+            if(rent1.getIdCar().equals(id)){
+                sumKM = sumKM + rent1.getKmUsed();
             }
         }
-        return result;
-
+        return sumKM;
     }
-
 
 }
